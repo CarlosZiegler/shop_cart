@@ -18,16 +18,10 @@ function filterProducts(ids, list) {
 } 	
 
 function setPromo(list){
-	
-	let countCategory = {'T-SHIRTS': 0, 'PANTS': 0, 'SHOES': 0, 'BAGS': 0};
-
-	list.map((e) => {
-		countCategory[e.category]++;
-	});
-
-	let count = Object.values(countCategory);
-
-	return promotions[(count.reduce((a, b) => Math.max(a,b))) - 1];
+    
+	const ListCategories=new Set(list.map((product) => product.category));
+    
+	return promotions[uniqueCategories.lenght - 1];
 
 }
 
